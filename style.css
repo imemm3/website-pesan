@@ -1,0 +1,755 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    padding: 25px 12px;
+
+    font-family: 'Rajdhani', Arial, sans-serif;
+
+    color: #fff;
+
+    background:
+        radial-gradient(circle at 50% 20%, rgba(154, 14, 14, 0.43), transparent 35%),
+        linear-gradient(180deg, #080808, #020202);
+
+    overflow-x: hidden;
+}
+
+/* efek garis/background */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(255, 0, 40, .025) 4px
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   CARD UTAMA
+========================= */
+
+.card {
+    position: relative;
+
+    width: 100%;
+    max-width: 620px;
+
+    margin: auto;
+
+    padding: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 3, 7, .97),
+            rgba(8, 2, 3, .98)
+        );
+
+    border: 1px solid #ff1744;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 0 10px rgba(255, 0, 0, 0.51),
+        0 0 35px rgba(255, 0, 50, .12);
+
+    overflow: hidden;
+}
+
+
+/* garis neon bagian atas */
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 8%;
+
+    width: 84%;
+    height: 1px;
+
+    background: #ff1744;
+
+    box-shadow:
+        0 0 10px #ff1744,
+        0 0 25px #ff1744;
+}
+
+
+/* =========================
+   VIDEO
+========================= */
+
+.media-box {
+    position: relative;
+
+    width: 100%;
+    height: 230px;
+
+    overflow: hidden;
+
+    border-radius: 17px;
+
+    border: 1px solid #ff1744;
+
+    box-shadow:
+        0 0 12px rgba(255, 0, 50, .5);
+}
+
+.media-box video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        brightness(.65)
+        saturate(1.2);
+}
+
+.media-box::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 45%,
+            rgba(10, 253, 240, 0)
+        );
+}
+
+.media-text {
+    position: absolute;
+
+    z-index: 2;
+
+    left: 50%;
+    bottom: 22px;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+
+    text-align: center;
+
+    color: white;
+
+    font-size: 36px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 5px #fff,
+        0 0 15px #ff1744;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+form {
+    padding: 5px 0;
+}
+
+label {
+    display: block;
+
+    margin-top: 25px;
+    margin-bottom: 9px;
+
+    color: #ff4968;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 0 8px rgba(255, 23, 23, 0.5);
+}
+
+
+/* INPUT */
+
+input[type="text"],
+textarea {
+    width: 100%;
+
+    padding: 15px 17px;
+
+    color: #fff;
+
+    background: #090707;
+
+    border: 1px solid #3c151c;
+
+    border-radius: 13px;
+
+    font-family: inherit;
+
+    font-size: 17px;
+
+    transition: .25s;
+}
+
+textarea {
+    min-height: 150px;
+
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #6f6265;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+
+    border-color: #ff1744;
+
+    box-shadow:
+        0 0 8px rgba(255, 23, 68, .4),
+        inset 0 0 10px rgba(255, 23, 68, .04);
+}
+
+
+/* =========================
+   FILE UPLOAD
+========================= */
+
+input[type="file"] {
+    width: 100%;
+
+    padding: 12px;
+
+    color: #aaa;
+
+    background: #090707;
+
+    border: 1px solid #3c151c;
+
+    border-radius: 13px;
+
+    font-family: inherit;
+}
+
+input[type="file"]::file-selector-button {
+    margin-right: 10px;
+
+    padding: 9px 14px;
+
+    color: white;
+
+    background: #24070c;
+
+    border: 1px solid #ff1744;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   PREVIEW
+========================= */
+
+#previewContainer {
+    display: none;
+
+    margin-top: 15px;
+
+    padding: 8px;
+
+    background: #080606;
+
+    border: 1px solid #48121b;
+
+    border-radius: 13px;
+}
+
+#previewImage,
+#previewVideo {
+    width: 100%;
+
+    max-height: 300px;
+
+    object-fit: contain;
+
+    border-radius: 9px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    position: relative;
+
+    width: 100%;
+
+    margin-top: 27px;
+
+    padding: 16px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            90deg,
+            #25060b,
+            #690817,
+            #25060b
+        );
+
+    border: 1px solid #ff1744;
+
+    border-radius: 13px;
+
+    font-family: inherit;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 10px rgba(255, 23, 68, .35);
+
+    transition: .2s;
+}
+
+button:hover {
+    box-shadow:
+        0 0 10px #ff1744,
+        0 0 25px rgba(255, 23, 68, .4);
+}
+
+button:active {
+    transform: scale(.98);
+}
+
+button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   HASIL
+========================= */
+
+#hasil {
+    margin-top: 18px;
+
+    padding: 12px;
+
+    text-align: center;
+
+    color: #ff4968;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    text-shadow:
+        0 0 8px rgba(255, 23, 68, .5);
+}
+
+
+/* =========================
+   HP
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px 9px;
+    }
+
+    .card {
+        padding: 15px;
+
+        border-radius: 21px;
+    }
+
+    .media-box {
+        height: 190px;
+    }
+
+    .media-text {
+        font-size: 29px;
+    }
+
+    label {
+        font-size: 17px;
+    }
+
+    input[type="text"],
+    textarea {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 18px;
+    }
+}
+ /* =========================
+   HEADER PANEL
+========================= */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 18px;
+
+    color: #ff4968;
+
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.brand-icon {
+    font-size: 22px;
+
+    text-shadow:
+        0 0 8px #ff1744;
+}
+
+.status {
+    padding: 6px 11px;
+
+    border: 1px solid #ff1744;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    box-shadow:
+        0 0 8px rgba(255, 23, 68, .25);
+}
+
+.status-dot {
+    display: inline-block;
+
+    width: 7px;
+    height: 7px;
+
+    margin-right: 5px;
+
+    background: #ff1744;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 8px #ff1744;
+
+    animation: blink 1.2s infinite;
+}
+
+
+/* =========================
+   VIDEO OVERLAY
+========================= */
+
+.media-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.05),
+            rgba(30,0,5,.75)
+        );
+
+    z-index: 1;
+}
+
+
+/* =========================
+   NEON LINE
+========================= */
+
+.neon-line {
+    position: relative;
+
+    height: 18px;
+
+    margin: 15px 5px 5px;
+
+    border-bottom: 1px solid #351018;
+}
+
+.neon-line span {
+    position: absolute;
+
+    right: 5%;
+
+    bottom: -4px;
+
+    width: 9px;
+    height: 9px;
+
+    background: #ff1744;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 7px #ff1744,
+        0 0 15px #ff1744;
+
+    animation: blink 1.4s infinite;
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title {
+    margin-top: 18px;
+
+    color: #ff4968;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 0 8px rgba(255, 23, 68, .45);
+}
+
+.section-title span {
+    margin-right: 7px;
+}
+
+.section-subtitle {
+    margin-top: 3px;
+
+    color: #6d6264;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    margin-top: 20px;
+    padding-top: 15px;
+
+    border-top: 1px solid #301016;
+
+    text-align: center;
+
+    color: #514649;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+}
+
+.copyright {
+    margin-top: 8px;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .25;
+    }
+}
+/* =========================
+   CUSTOM FILE UPLOAD
+========================= */
+
+input[type="file"] {
+    padding: 0;
+
+    height: 52px;
+
+    background: #080606;
+
+    color: #75696c;
+
+    border: 1px solid #351018;
+
+    overflow: hidden;
+}
+
+input[type="file"]::file-selector-button {
+    height: 100%;
+
+    margin-right: 12px;
+
+    padding: 0 18px;
+
+    color: #fff;
+
+    background: #22060b;
+
+    border: none;
+    border-right: 1px solid #ff1744;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: #600916;
+}
+
+
+/* =========================
+   TOMBOL KIRIM NEON
+========================= */
+
+#kirimBtn {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            #180306,
+            #650914,
+            #180306
+        );
+
+    border: 1px solid #FF1744;
+
+    box-shadow:
+        0 0 8px rgba(29, 255, 23, 0.35),
+        inset 0 0 15px rgba(255, 23, 68, .08);
+}
+
+#kirimBtn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.15),
+            transparent
+        );
+
+    transform: skewX(-25deg);
+
+    animation: buttonScan 3s infinite;
+}
+
+#kirimBtn:hover {
+    box-shadow:
+        0 0 12px #ff1744,
+        0 0 30px rgba(255, 23, 68, .35);
+}
+
+@keyframes buttonScan {
+
+    0% {
+        left: -100%;
+    }
+
+    45% {
+        left: 140%;
+    }
+
+    100% {
+        left: 140%;
+    }
+}
+
+
+/* =========================
+   STATUS BERHASIL
+========================= */
+
+#hasil.success {
+    color: #ff4968;
+
+    border: 1px solid #5c101d;
+
+    border-radius: 10px;
+
+    background: rgba(255, 23, 68, .05);
+
+    animation: muncul .3s ease;
+}
+
+@keyframes muncul {
+
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
