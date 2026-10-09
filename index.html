@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Panel Pesan</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="card">
+
+        <!-- HEADER -->
+        <div class="topbar">
+
+            <div class="brand">
+                <span class="brand-icon">◉</span>
+                <span>MESSAGE PANEL</span>
+            </div>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                ONLINE
+            </div>
+
+        </div>
+
+
+<div class="media-box">
+
+    <video
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+    >
+        <source src="imam.mp4" type="video/mp4">
+    </video>
+
+    <div class="media-overlay"></div>
+
+    <div class="media-text">
+        
+    </div>
+
+</div>
+
+
+        <!-- GARIS -->
+        <div class="neon-line">
+            <span></span>
+        </div>
+
+
+        <!-- JUDUL -->
+        <div class="section-title">
+            <span></span>
+         kirim
+        </div>
+
+        <div class="section-subtitle">
+          Sampaikan pesan kamu melalui panel ini
+        </div>
+
+
+        <!-- FORM -->
+        <form id="pesanForm" enctype="multipart/form-data">
+
+
+            <!-- NAMA -->
+            <label for="nama">
+                👤 Nama anda atau nama samaran
+            </label>
+
+            <input
+                type="text"
+                id="nama"
+                name="nama"
+                placeholder="Masukkan nama kamu..."
+                required
+            >
+
+
+            <!-- PESAN -->
+            <label for="pesan">
+                 Pesan Anda Akan Terkirim Otomatis ke Akun Telegram imam
+            </label>
+
+            <textarea
+                id="pesan"
+                name="pesan"
+                placeholder="Tulis pesan kamu..."
+                required
+            ></textarea>
+
+
+            <!-- MEDIA -->
+            <label for="media">
+                📎 Foto / Video
+                <small>(opsional)</small>
+            </label>
+
+            <input
+                type="file"
+                id="media"
+                name="media"
+                accept="image/*,video/*"
+            >
+
+
+            <!-- PREVIEW -->
+            <div id="previewContainer">
+
+                <img
+                    id="previewImage"
+                    alt="Preview foto"
+                >
+
+                <video
+                    id="previewVideo"
+                    controls
+                ></video>
+
+            </div>
+
+
+            <!-- BUTTON -->
+            <button
+                type="submit"
+                id="kirimBtn"
+            >
+                KIRIM PESAN
+            </button>
+
+        </form>
+
+
+        <!-- HASIL -->
+        <div id="hasil"></div>
+
+
+        <!-- FOOTER -->
+        <div class="footer">
+
+            <div>
+                🔒 SECURE MESSAGE SYSTEM
+            </div>
+
+            <div class="copyright">
+                MESSAGE PANEL • 2026
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
